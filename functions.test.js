@@ -1,6 +1,35 @@
 const functions = require("./functions");
 const axios = require("axios");
 
+// beforeEach(() => initDatabase());
+// afterEach(() => closedDatabase());
+//Vai rodar initDatabase() toda vez antes de chamar um teste
+//Ao finalizar cada teste, vai rodar closeDatabase
+
+//beforeAll(() => initDatabase());
+// afterAll(() => closedDatabase());
+//Vai rodar initDatabase() antes de iniciar todos os testes
+//Vai rodar closeDatabase() somente depois de finalizar todos os testes
+
+// const initDatabase = () => console.log("Database Initialized...");
+// const closedDatabase = () => console.log("Database Closed...");
+
+const nameCheck = () => console.log("Checking name...");
+
+describe("Checking names", () => {
+  beforeEach(() => nameCheck());
+
+  test("User is Jeff", () => {
+    const user = "Jeff";
+    expect(user).toBe("Jeff");
+  });
+
+  test("User is Karen", () => {
+    const user = "Karen";
+    expect(user).toBe("Karen");
+  });
+});
+
 test("Adds 2 + 2 to equal 4", () => {
   expect(functions.add(2, 2)).toBe(4);
 });
